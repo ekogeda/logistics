@@ -50,7 +50,7 @@ const statistics = [
             <h4>Transaction</h4>
           </v-card-title>
 
-          <!-- <ChartBar /> -->
+          <ChartBar />
         </v-card>
       </v-col>
 
