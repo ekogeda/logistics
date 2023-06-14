@@ -77,10 +77,10 @@ const statistics = [
 
           <v-row>
             <v-col cols="12" md="6" sm="6" xs="12">
-              <!-- <ChartRadial :data="{ title: 'Paid Bills', value: 85, color: '#198754', label: 'Paid Bills' }" /> -->
+              <ChartRadial :data="{ title: 'Paid Bills', value: 85, color: '#198754', label: 'Paid Bills' }" />
             </v-col>
             <v-col cols="12" md="6" sm="6" xs="12">
-              <!-- <ChartRadial :data="{ title: 'On-route', value: 25, color: '#fd7e14', label: 'On-route' }" /> -->
+              <ChartRadial :data="{ title: 'On-route', value: 25, color: '#fd7e14', label: 'On-route' }" />
             </v-col>
           </v-row>
         </v-card>
