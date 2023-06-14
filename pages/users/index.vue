@@ -92,7 +92,7 @@ const statistics = [
             <h4>Statistics</h4>
           </v-card-title>
 
-          <!-- <ChartPie /> -->
+          <ChartPie />
         </v-card>
       </v-col>
     </v-row>
