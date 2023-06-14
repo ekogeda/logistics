@@ -5,10 +5,13 @@ export default defineNuxtConfig({
 	build: {
 		transpile: ['vuetify'],
 	},
+	generate: {
+		fallback: true,
+	},
 	vite: {
 		define: {
 			'process.env.DEBUG': false,
 		},
-	}
+	},
 });
 
