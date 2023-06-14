@@ -7,7 +7,8 @@
       <h1 v-else>
         {{ otherError }}
       </h1>
-      <img src="@/assets/404.svg" class="img" width="50%" alt="404" />
+
+      <img src="/assets/404.svg" loading="lazy" class="img" alt="404" />
       <NuxtLink to="/"> Home page </NuxtLink>
     </div>
   </v-app>
@@ -53,5 +54,6 @@ h1 {
 .img {
   display: block;
   margin: 20px auto;
+  width: 50%;
 }
 </style>
