@@ -377,18 +377,18 @@ const onSubmit = (formObj) => {
           <h3>Quote</h3>
 
           <v-card class="text-center">
-            <v-card-title class="text-center">
-              <h3>
+            <v-card-title>
+              <h5>
                 {{ senderState + " (" + getFirstLetters(senderState) + ")" }} |
                 {{ senderCountry + " (" + getFirstLetters(senderCountry) + ")" }}
-              </h3>
+              </h5>
             </v-card-title>
             <v-card-text class="card-text">TO</v-card-text>
             <v-card-title>
-              <h3>
+              <h5>
                 {{ receiverState + " (" + getFirstLetters(receiverState) + ")" }} |
                 {{ receiverCountry + " (" + getFirstLetters(receiverCountry) + ")" }}
-              </h3>
+              </h5>
             </v-card-title>
 
             <hr />
@@ -511,5 +511,18 @@ details p {
 
 samp {
   display: block;
+}
+
+@media (min-width: 320px) {
+  .grid-sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .grid-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>

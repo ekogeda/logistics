@@ -1,183 +1,185 @@
 <script setup>
-import { useDate } from 'vuetify/labs/date'
+import { useDate } from "vuetify/labs/date";
 
-const date = useDate()
-const formatted = date.format(new Date(), 'normalDateWithWeekday')
+const date = useDate();
+const formatted = date.format(new Date(), "normalDateWithWeekday");
 
-const selected = ref([])
-const search = ref('')
+const selected = ref([]);
+const search = ref("");
 
-const dialog = ref(false)
-const dialogDelete = ref(false)
+const dialog = ref(false);
+const dialogDelete = ref(false);
 
 const headers = ref([
-  { title: 'Waybill', align: 'start', key: 'waybill', },
-  { title: 'Date', align: 'start', key: 'date' },
-  { title: 'Received By', align: 'start', key: 'receiverName' },
-  { title: 'Mobile', align: 'start', key: 'receiverPhone' },
-  { title: 'Origin', align: 'start', key: 'senderCountry' },
-  { title: 'Destination', align: 'start', key: 'receiverCountry' },
-  { title: 'Weight (Kg)', align: 'end', key: 'weight' },
-  { title: 'Price', align: 'end', key: 'price' },
-  { title: 'Status', align: 'start', key: 'status' },
-  { title: 'Actions', key: 'actions', sortable: false }
-])
+  { title: "Waybill", align: "start", key: "waybill" },
+  { title: "Date", align: "start", key: "date" },
+  { title: "Received By", align: "start", key: "receiverName" },
+  { title: "Mobile", align: "start", key: "receiverPhone" },
+  { title: "Origin", align: "start", key: "senderCountry" },
+  { title: "Destination", align: "start", key: "receiverCountry" },
+  { title: "Weight (Kg)", align: "end", key: "weight" },
+  { title: "Price", align: "end", key: "price" },
+  { title: "Status", align: "start", key: "status" },
+  { title: "Actions", key: "actions", sortable: false },
+]);
 
-const orders = ref([])
-const editedIndex = ref(-1)
+const orders = ref([]);
+const editedIndex = ref(-1);
 const editedItem = ref({
-  senderName: '',
-  senderEmail: '',
-  senderPhone: '',
-  senderAddress: '',
-  senderCountry: '',
-  senderState: '',
-  senderCity: '',
+  senderName: "",
+  senderEmail: "",
+  senderPhone: "",
+  senderAddress: "",
+  senderCountry: "",
+  senderState: "",
+  senderCity: "",
 
-  receiverName: '',
-  receiverEmail: '',
-  receiverPhone: '',
-  receiverAddress: '',
-  receiverCountry: '',
-  receiverState: '',
-  receiverCity: '',
+  receiverName: "",
+  receiverEmail: "",
+  receiverPhone: "",
+  receiverAddress: "",
+  receiverCountry: "",
+  receiverState: "",
+  receiverCity: "",
 
-  serviceType: '',
-  mode: '',
-  insurance: '',
-  waybill: '',
-  date: '',
-  weight: '',
-  price: '',
-  status: '',
-})
+  serviceType: "",
+  mode: "",
+  insurance: "",
+  waybill: "",
+  date: "",
+  weight: "",
+  price: "",
+  status: "",
+});
 
 const defaultItem = ref({
-  senderName: '',
-  senderEmail: '',
-  senderPhone: '',
-  senderAddress: '',
-  senderCountry: '',
-  senderState: '',
-  senderCity: '',
+  senderName: "",
+  senderEmail: "",
+  senderPhone: "",
+  senderAddress: "",
+  senderCountry: "",
+  senderState: "",
+  senderCity: "",
 
-  receiverName: '',
-  receiverEmail: '',
-  receiverPhone: '',
-  receiverAddress: '',
-  receiverCountry: '',
-  receiverState: '',
-  receiverCity: '',
+  receiverName: "",
+  receiverEmail: "",
+  receiverPhone: "",
+  receiverAddress: "",
+  receiverCountry: "",
+  receiverState: "",
+  receiverCity: "",
 
-  serviceType: '',
-  mode: '',
-  insurance: '',
-  waybill: '',
-  date: '',
-  weight: '',
-  price: '',
-  status: '',
-})
+  serviceType: "",
+  mode: "",
+  insurance: "",
+  waybill: "",
+  date: "",
+  weight: "",
+  price: "",
+  status: "",
+});
 
 const formTitle = computed(() => {
-  return editedIndex.value === -1 ? 'New Transaction' : 'Edit Transaction'
-})
+  return editedIndex.value === -1 ? "New Transaction" : "Edit Transaction";
+});
 
-watch(() => [dialog.value, dialogDelete.value],
+watch(
+  () => [dialog.value, dialogDelete.value],
   ([newDialog, newDialogDelete]) => {
-    if (newDialog) newDialog || closeModal()
+    if (newDialog) newDialog || closeModal();
 
-    if (newDialogDelete) newDialogDelete || closeDelete()
-  })
+    if (newDialogDelete) newDialogDelete || closeDelete();
+  }
+);
 
 const initialize = () => {
-  orders.value = []
+  orders.value = [];
   orders.value = [
     {
-      senderName: '',
-      senderEmail: '',
-      senderPhone: '',
-      senderAddress: '',
-      senderCountry: 'NGN',
-      senderState: 'Lagos',
-      senderCity: 'Surulere',
+      senderName: "",
+      senderEmail: "",
+      senderPhone: "",
+      senderAddress: "",
+      senderCountry: "NGN",
+      senderState: "Lagos",
+      senderCity: "Surulere",
 
-      receiverName: 'Dami',
-      receiverEmail: '',
-      receiverPhone: '08012345678',
-      receiverAddress: '',
-      receiverCountry: 'USA',
-      receiverState: 'Texas',
-      receiverCity: '',
+      receiverName: "Dami",
+      receiverEmail: "",
+      receiverPhone: "08012345678",
+      receiverAddress: "",
+      receiverCountry: "USA",
+      receiverState: "Texas",
+      receiverCity: "",
 
-      serviceType: '',
-      mode: '',
-      insurance: '',
-      waybill: 'AAJ95567EX',
+      serviceType: "",
+      mode: "",
+      insurance: "",
+      waybill: "AAJ95567EX",
 
-      status: 'New',
+      status: "New",
       date: formatted,
       price: 10000,
       weight: 1,
     },
-  ]
+  ];
 };
 
 const editItem = (item) => {
-  editedIndex.value = orders.value.indexOf(item)
-  editedItem.value = Object.assign({}, item)
-  dialog.value = true
-}
+  editedIndex.value = orders.value.indexOf(item);
+  editedItem.value = Object.assign({}, item);
+  dialog.value = true;
+};
 
 const deleteItem = (item) => {
-  editedIndex.value = orders.value.indexOf(item)
-  editedItem.value = Object.assign({}, item)
-  dialogDelete.value = true
-}
+  editedIndex.value = orders.value.indexOf(item);
+  editedItem.value = Object.assign({}, item);
+  dialogDelete.value = true;
+};
 
 const deleteItemConfirm = () => {
-  orders.value.splice(editedIndex.value, 1)
-  closeDelete()
-}
+  orders.value.splice(editedIndex.value, 1);
+  closeDelete();
+};
 
 const closeModal = () => {
-  dialog.value = false
+  dialog.value = false;
   nextTick(() => {
-    editedItem.value = Object.assign({}, defaultItem.value)
-    editedIndex.value = -1
-  })
-}
+    editedItem.value = Object.assign({}, defaultItem.value);
+    editedIndex.value = -1;
+  });
+};
 
 const closeDelete = () => {
-  dialogDelete.value = false
+  dialogDelete.value = false;
   nextTick(() => {
-    editedItem.value = Object.assign({}, defaultItem.value)
-    editedIndex.value = -1
-  })
-}
+    editedItem.value = Object.assign({}, defaultItem.value);
+    editedIndex.value = -1;
+  });
+};
 
 const handleSubmitOrder = (formData) => {
   if (editedIndex.value > -1) {
-    console.log('From DataTable Editing: ', orders.value[editedIndex.value])
-    Object.assign(orders.value[editedIndex.value], formData)
+    console.log("From DataTable Editing: ", orders.value[editedIndex.value]);
+    Object.assign(orders.value[editedIndex.value], formData);
   } else {
-    console.log('From DataTable Submitting: ', formData)
-    orders.value.unshift(formData)
+    console.log("From DataTable Submitting: ", formData);
+    orders.value.unshift(formData);
   }
-  closeModal()
-}
+  closeModal();
+};
 
 const getColor = (params) => {
-  let status = params.toLowerCase()
-  if (status == 'new') return 'blue'
-  else if (status == 'cancelled') return 'red'
-  else if (status == 'pending') return 'orange'
-  else return 'green'
-}
+  let status = params.toLowerCase();
+  if (status == "new") return "blue";
+  else if (status == "cancelled") return "red";
+  else if (status == "pending") return "orange";
+  else return "green";
+};
 
 onMounted(() => {
-  initialize()
-})
+  initialize();
+});
 </script>
 
 <template>
@@ -216,11 +218,9 @@ onMounted(() => {
                 <span class="text-h5">{{ formTitle }}</span>
               </v-card-title>
 
-              <v-card-text>
                 <v-container>
                   <Order @submitOrder="handleSubmitOrder" />
                 </v-container>
-              </v-card-text>
 
               <!-- <v-card-actions>
                         <v-spacer></v-spacer>
@@ -232,12 +232,13 @@ onMounted(() => {
                         </v-btn>
                       </v-card-actions> -->
             </v-card>
-
           </v-dialog>
 
           <v-dialog v-model="dialogDelete" transition="dialog-bottom-transition" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+              <v-card-title class="text-h6 text-center" style="white-space: inherit">
+                Are you sure you want to delete this item?
+              </v-card-title>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
@@ -257,9 +258,7 @@ onMounted(() => {
         </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">
-          Reset
-        </v-btn>
+        <v-btn color="primary" @click="initialize"> Reset </v-btn>
       </template>
     </v-data-table>
   </v-card>

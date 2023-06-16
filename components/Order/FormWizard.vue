@@ -2,12 +2,12 @@
   <form @submit="onSubmit">
     <slot />
 
-    <v-sheet class="text-end mt-8">
-      <v-btn color="grey-darken-3" class="me-2" v-if="hasPrevious" type="button" @click="goToPrev">
+    <div class="text-end mt-8">
+      <v-btn size="small" color="grey-darken-3" class="me-2" v-if="hasPrevious" type="button" @click="goToPrev">
         Previous
       </v-btn>
-      <v-btn color="orange-darken-3" type="submit">{{ isLastStep ? 'Checkout' : 'Next' }}</v-btn>
-    </v-sheet>
+      <v-btn size="small" color="orange-darken-3" type="submit">{{ isLastStep ? 'Checkout' : 'Next' }}</v-btn>
+    </div>
 
     <!-- <pre>{{ values }}</pre> -->
   </form>

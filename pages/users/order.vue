@@ -7,7 +7,6 @@ definePageMeta({ layout: "users" });
     <v-row>
       <v-col cols="12">
         <OrderTable />
-        <!-- <TableOrder /> -->
       </v-col>
     </v-row>
   </v-container>
