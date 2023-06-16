@@ -1,6 +1,6 @@
 <script setup>
-import { useField, useForm } from 'vee-validate'
-import * as yup from 'yup';
+import { useField, useForm } from "vee-validate";
+import * as yup from "yup";
 
 definePageMeta({ layout: "users" });
 
@@ -17,38 +17,30 @@ const { handleSubmit } = useForm({
   validationSchema,
 });
 
-const name = useField('name', validationSchema)
-const email = useField('email', validationSchema);
-const phone = useField('phone', validationSchema)
-const password = useField('password', validationSchema);
-const confirmPass = useField('confirmPass', validationSchema)
-const gender = useField('gender', validationSchema)
+const name = useField("name", validationSchema);
+const email = useField("email", validationSchema);
+const phone = useField("phone", validationSchema);
+const password = useField("password", validationSchema);
+const confirmPass = useField("confirmPass", validationSchema);
+const gender = useField("gender", validationSchema);
 
-const items = ref([
-  'Male',
-  'Female',
-  'Others',
-])
+const items = ref(["Male", "Female", "Others"]);
 
 // name.value.value = 'Jane Doe'
 // email.value.value = 'jane_doe@mail.com'
 // phone.value.value = '08012345678'
 // gender.value.value = 'Male'
 
+const update = handleSubmit((values) => {
+  alert(JSON.stringify(values, null, 2));
+});
 
-
-const update = handleSubmit(values => {
-  alert(JSON.stringify(values, null, 2))
-})
-
-const isEyeOpen = ref(false)
-const isConfirmEyeOpen = ref(false)
-
+const isEyeOpen = ref(false);
+const isConfirmEyeOpen = ref(false);
 </script>
-  
+
 <template>
   <v-container class="my-10">
-    <!-- <v-layout column> -->
     <v-row>
       <v-col cols="12" sm="8" class="mx-auto">
         <v-card class="my-4 pa-5 elevation-5">
@@ -60,10 +52,11 @@ const isConfirmEyeOpen = ref(false)
           <v-divider />
 
           <v-card-title class="text-center">
-            <v-avatar size="96" class="me-4">
-              <img src="@/assets/aaj/thumbs-up.png" class="w-100" alt="Avatar">
+            <v-avatar size="50" class="me-4">
+              <img src="@/assets/aaj/thumbs-up.png" class="w-100" alt="Avatar" />
             </v-avatar>
-            <v-btn class="text-capitalize" @click="openAvatarPicker">Change Avatar</v-btn>
+            <v-btn color="orange-darken-3" size="small" class="text-capitalize" @click="openAvatarPicker">Change
+              Avatar</v-btn>
           </v-card-title>
 
           <v-row>
@@ -100,7 +93,6 @@ const isConfirmEyeOpen = ref(false)
                 label="Confirm password" :counter="8" :error-messages="confirmPass.errorMessage.value"
                 @click:append="isConfirmEyeOpen = !isConfirmEyeOpen"></v-text-field>
             </v-col>
-
           </v-row>
 
           <v-btn flat color="orange-darken-3" class="rounded-xl text-capitalize d-block mx-auto mb-5" :loading="loading"
@@ -111,36 +103,34 @@ const isConfirmEyeOpen = ref(false)
         </v-card>
       </v-col>
     </v-row>
-    <!-- </v-layout> -->
     <!-- <avatar-picker v-model="showAvatarPicker" :current-avatar="form.avatar" @selected="selectAvatar"></avatar-picker> -->
   </v-container>
 </template>
 
 <script>
 export default {
-  pageTitle: 'My Profile',
+  pageTitle: "My Profile",
   data() {
     return {
       loading: false,
       form: {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john@doe.com',
-        avatar: 'MALE_CAUCASIAN_BLOND_BEARD'
+        firstName: "John",
+        lastName: "Doe",
+        email: "john@doe.com",
+        avatar: "MALE_CAUCASIAN_BLOND_BEARD",
       },
-      showAvatarPicker: false
-    }
+      showAvatarPicker: false,
+    };
   },
   methods: {
     openAvatarPicker() {
-      this.showAvatarPicker = true
+      this.showAvatarPicker = true;
     },
     selectAvatar(avatar) {
-      this.form.avatar = avatar
-    }
-  }
-}
+      this.form.avatar = avatar;
+    },
+  },
+};
 </script>
-
 
 <style lang="scss" scoped></style>
