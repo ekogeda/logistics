@@ -47,7 +47,7 @@ const isConfirmEyeOpen = ref(false)
 </script>
   
 <template>
-  <v-container fluid class="my-16">
+  <v-container fluid class="my-10">
     <v-layout column>
       <v-row>
         <v-col cols="12" sm="8" class="mx-auto">

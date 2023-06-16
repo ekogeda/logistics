@@ -9,7 +9,7 @@ const statistics = [
 </script>
 
 <template>
-  <v-container class="my-8">
+  <v-container class="my-10">
     <v-row>
       <v-col cols="9" md="9" sm="9" xs="12" class="d-flex align-center">
         <div>

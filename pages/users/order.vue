@@ -3,14 +3,13 @@ definePageMeta({ layout: "users" });
 </script>
 
 <template>
-  <v-container fluid>
-    <v-layout>
-      <v-row>
-        <v-col cols="12">
-          <OrderTable />
-        </v-col>
-      </v-row>
-    </v-layout>
+  <v-container fluid class="my-10">
+    <v-row>
+      <v-col cols="12">
+        <OrderTable />
+        <!-- <TableOrder /> -->
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

@@ -181,52 +181,48 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card class="pa-5">
-          <v-layout column style="padding-top:56px">
-            <v-data-table v-model="selected" class="elevation-1" :headers="headers" :items="orders" :search="search" hover
-              density="compact" items-per-page="5" item-value="name" return-object show-select mobile-breakpoint="0">
-              <template v-slot:item.status="{ item }">
-                <v-chip :color="getColor(item.columns.status)" prepend-icon="mdi-circle-medium">
-                  {{ item.columns.status }}
-                </v-chip>
-              </template>
+  <v-card>
+    <v-data-table v-model="selected" class="elevation-1" :headers="headers" :items="orders" :search="search" hover
+      density="compact" items-per-page="5" item-value="name" return-object show-select mobile-breakpoint="0">
+      <template v-slot:item.status="{ item }">
+        <v-chip :color="getColor(item.columns.status)" prepend-icon="mdi-circle-medium">
+          {{ item.columns.status }}
+        </v-chip>
+      </template>
 
-              <template v-slot:top>
-                <v-toolbar flat>
-                  <v-toolbar-title>Orders</v-toolbar-title>
+      <template v-slot:top>
+        <v-toolbar flat>
+          <v-toolbar-title>Orders</v-toolbar-title>
 
-                  <!-- <v-divider class="mx-4" inset vertical></v-divider> -->
+          <!-- <v-divider class="mx-4" inset vertical></v-divider> -->
 
-                  <v-spacer />
+          <v-spacer />
 
-                  <v-text-field v-model="search" variant="underlined" append-icon="mdi-magnify" label="Search" single-line
-                    hide-details></v-text-field>
+          <v-text-field v-model="search" variant="underlined" append-icon="mdi-magnify" label="Search" single-line
+            hide-details></v-text-field>
 
-                  <v-spacer />
+          <v-spacer />
 
-                  <v-dialog v-model="dialog" transition="dialog-bottom-transition" width="800px">
-                    <template v-slot:activator="{ props }">
-                      <v-btn color="orange-darken-3" variant="flat" elevation="1" prepend-icon="mdi-plus" v-bind="props"
-                        class="text-capitalize">
-                        Create new order
-                      </v-btn>
-                    </template>
+          <v-dialog v-model="dialog" transition="dialog-bottom-transition" width="800px">
+            <template v-slot:activator="{ props }">
+              <v-btn color="orange-darken-3" variant="flat" elevation="1" prepend-icon="mdi-plus" v-bind="props"
+                class="text-capitalize">
+                Create new order
+              </v-btn>
+            </template>
 
-                    <v-card>
-                      <v-card-title>
-                        <span class="text-h5">{{ formTitle }}</span>
-                      </v-card-title>
+            <v-card>
+              <v-card-title>
+                <span class="text-h5">{{ formTitle }}</span>
+              </v-card-title>
 
-                      <v-card-text>
-                        <v-container>
-                          <Order @submitOrder="handleSubmitOrder" />
-                        </v-container>
-                      </v-card-text>
+              <v-card-text>
+                <v-container>
+                  <Order @submitOrder="handleSubmitOrder" />
+                </v-container>
+              </v-card-text>
 
-                      <!-- <v-card-actions>
+              <!-- <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="blue-darken-1" variant="text" @click="closeModal">
                           Cancel
@@ -235,47 +231,38 @@ onMounted(() => {
                           Save
                         </v-btn>
                       </v-card-actions> -->
-                    </v-card>
+            </v-card>
 
-                  </v-dialog>
+          </v-dialog>
 
-                  <v-dialog v-model="dialogDelete" transition="dialog-bottom-transition" max-width="500px">
-                    <v-card>
-                      <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-                      <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
-                        <v-btn color="red-darken-1" variant="text" @click="deleteItemConfirm">OK</v-btn>
-                        <v-spacer></v-spacer>
-                      </v-card-actions>
-                    </v-card>
-                  </v-dialog>
-                </v-toolbar>
-              </template>
-              <template v-slot:item.actions="{ item }">
-                <v-icon color="orange-darken-1" size="small" class="me-2" @click="editItem(item.raw)">
-                  mdi-pencil
-                </v-icon>
-                <v-icon color="red-darken-1" size="small" @click="deleteItem(item.raw)">
-                  mdi-delete
-                </v-icon>
-              </template>
-              <template v-slot:no-data>
-                <v-btn color="primary" @click="initialize">
-                  Reset
-                </v-btn>
-              </template>
-            </v-data-table>
-          </v-layout>
-          <!-- <pre>Search value: {{ search }}</pre>
-          <pre>{{ selected }}</pre>
-          <pre>
-          {{ editedItem }}
-          </pre> -->
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+          <v-dialog v-model="dialogDelete" transition="dialog-bottom-transition" max-width="500px">
+            <v-card>
+              <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
+                <v-btn color="red-darken-1" variant="text" @click="deleteItemConfirm">OK</v-btn>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-toolbar>
+      </template>
+      <template v-slot:item.actions="{ item }">
+        <v-icon color="orange-darken-1" size="small" class="me-2" @click="editItem(item.raw)">
+          mdi-pencil
+        </v-icon>
+        <v-icon color="red-darken-1" size="small" @click="deleteItem(item.raw)">
+          mdi-delete
+        </v-icon>
+      </template>
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="initialize">
+          Reset
+        </v-btn>
+      </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <style lang="scss" scoped>
