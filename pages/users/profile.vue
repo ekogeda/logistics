@@ -44,12 +44,12 @@ const isConfirmEyeOpen = ref(false);
     <v-row>
       <v-col cols="12" sm="8" class="mx-auto">
         <v-card class="my-4 pa-5 elevation-5">
-          <v-card-text class="d-flex justify-space-between align-center">
+          <div class="d-flex justify-space-between align-center">
             <h3>Edit profile</h3>
             <p>User ID 1234567</p>
-          </v-card-text>
+          </div>
 
-          <v-divider />
+          <v-divider class="my-3" />
 
           <v-card-title class="text-center">
             <v-avatar size="50" class="me-4">
