@@ -18,6 +18,8 @@ const items = [
 </script>
 
 <template>
+  <!-- <v-navigation-drawer v-model="drawer" :rail="rail" :permanent="!$vuetify.display.xs" :temporary="$vuetify.display.xs"
+      @click="rail = false"> -->
   <v-navigation-drawer v-model="drawer" :rail="rail" permanent @click="rail = false">
     <v-list-item-title class="my-3 text-center">
       <nuxt-link to="/">

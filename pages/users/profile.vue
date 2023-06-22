@@ -42,7 +42,7 @@ const isConfirmEyeOpen = ref(false);
 <template>
   <v-container class="my-10">
     <v-row>
-      <v-col cols="12" sm="8" class="mx-auto">
+      <v-col cols="12" md="8" sm="10" class="mx-auto">
         <v-card class="my-4 pa-5 elevation-5">
           <div class="d-flex justify-space-between align-center">
             <h3>Edit profile</h3>
