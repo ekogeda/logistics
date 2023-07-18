@@ -27,7 +27,7 @@ const notify = ref([]);
                   title="Change email address"
                 ></v-toolbar>
                 <v-card-text>
-                  <div class="text-h2 pa-12">Coming Soon!</div>
+                  <div class="text-h4 pa-5">Coming soon!</div>
                 </v-card-text>
                 <v-card-actions class="justify-end">
                   <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>
@@ -52,7 +52,7 @@ const notify = ref([]);
               <v-card>
                 <v-toolbar color="orange-darken-3" title="Change password"></v-toolbar>
                 <v-card-text>
-                  <div class="text-h2 pa-12">Coming Soon!</div>
+                  <div class="text-h4 pa-5">Coming soon!</div>
                 </v-card-text>
                 <v-card-actions class="justify-end">
                   <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>
@@ -80,7 +80,7 @@ const notify = ref([]);
                   title="Change security question"
                 ></v-toolbar>
                 <v-card-text>
-                  <div class="text-h2 pa-12">Coming Soon!</div>
+                  <div class="text-h4 pa-5">Coming soon!</div>
                 </v-card-text>
                 <v-card-actions class="justify-end">
                   <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>
@@ -115,7 +115,7 @@ const notify = ref([]);
                   title="Activate phone number"
                 ></v-toolbar>
                 <v-card-text>
-                  <div class="text-h2 pa-12">Coming Soon!</div>
+                  <div class="text-h4 pa-5">Coming soon!</div>
                 </v-card-text>
                 <v-card-actions class="justify-end">
                   <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>
@@ -140,7 +140,7 @@ const notify = ref([]);
               <v-card>
                 <v-toolbar color="orange-darken-3" title="Activate email"></v-toolbar>
                 <v-card-text>
-                  <div class="text-h2 pa-12">Coming Soon!</div>
+                  <div class="text-h4 pa-5">Coming soon!</div>
                 </v-card-text>
                 <v-card-actions class="justify-end">
                   <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>
@@ -211,7 +211,7 @@ const notify = ref([]);
           <v-card>
             <v-toolbar color="orange-darken-3" title="Add new address"></v-toolbar>
             <v-card-text>
-              <div class="text-h2 pa-12">Coming Soon!</div>
+              <div class="text-h4 pa-5">Coming soon!</div>
             </v-card-text>
             <v-card-actions class="justify-end">
               <v-btn variant="text" class="text-capitalize" @click="isActive.value = false">Close</v-btn>

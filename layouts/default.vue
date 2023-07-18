@@ -1,18 +1,24 @@
 <script setup>
-const route = useRoute()
+const route = useRoute();
 
 useHead({
-  meta: [{ property: 'og:title', content: `AAJExp - ${route.meta.title}` }]
-})
+  meta: [{ property: "og:title", content: `AAJExp - ${route.meta.title}` }],
+});
 </script>
 
 <template>
   <div class="default-layout container">
-    <TheNavbar />
+    <v-card>
+      <v-layout>
+        <TheNavbar />
 
-    <slot />
+        <v-main>
+          <slot />
 
-    <TheFooter />
+          <TheFooter />
+        </v-main>
+      </v-layout>
+    </v-card>
   </div>
 </template>
 

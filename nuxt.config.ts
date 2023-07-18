@@ -8,6 +8,9 @@ export default defineNuxtConfig({
 	generate: {
 		fallback: true,
 	},
+	modules: [
+		'@vueuse/nuxt',
+	],
 	vite: {
 		define: {
 			'process.env.DEBUG': false,
