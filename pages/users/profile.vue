@@ -40,7 +40,7 @@ const isConfirmEyeOpen = ref(false);
 </script>
 
 <template>
-  <v-container class="my-10">
+  <v-container fluid class="my-10">
     <v-row>
       <v-col cols="12" md="8" sm="10" class="mx-auto">
         <v-card class="my-4 pa-5 elevation-5">

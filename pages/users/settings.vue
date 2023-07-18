@@ -5,7 +5,7 @@ const notify = ref([]);
 </script>
 
 <template>
-  <v-container class="my-10">
+  <v-container fluid class="my-10">
     <v-card class="pa-5">
       <h4>Security Information</h4>
       <v-row>

@@ -9,7 +9,7 @@ const statistics = [
 </script>
 
 <template>
-  <v-container class="my-10">
+  <v-container fluid class="my-10">
     <v-row>
       <v-col cols="9" md="9" sm="9" xs="12" class="d-flex align-center">
         <v-icon>mdi-human-greeting</v-icon>
