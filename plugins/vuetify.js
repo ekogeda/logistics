@@ -3,7 +3,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { VDataTable } from 'vuetify/labs/VDataTable'
 
-const myCustomLightTheme = {
+const lightTheme = {
   dark: false,
   colors: {
     background: '#FFFFFF',
@@ -25,9 +25,9 @@ export default defineNuxtPlugin(nuxtApp => {
     components: { ...components, VDataTable },
     directives,
     theme: {
-      defaultTheme: 'myCustomLightTheme',
+      defaultTheme: 'lightTheme',
       themes: {
-        myCustomLightTheme,
+        lightTheme,
       },
     },
   })

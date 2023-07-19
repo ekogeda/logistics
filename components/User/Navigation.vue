@@ -46,7 +46,8 @@ const items = [
     <v-list-item-title class="my-3 text-center">
       <nuxt-link to="/">
         <img v-show="$vuetify.theme.name == 'dark'" src="@/assets/aaj/aaj-logo.png" width="50" alt="logo" />
-        <img v-show="$vuetify.theme.name == 'light'" src="@/assets/aaj/logo.png" width="50" alt="logo" />
+        <img v-show="['light', 'lightTheme'].includes($vuetify.theme.name)" src="@/assets/aaj/logo.png" width="50"
+          alt="logo" />
       </nuxt-link>
     </v-list-item-title>
 
